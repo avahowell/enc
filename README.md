@@ -10,4 +10,4 @@ A simple command-line encryption tool, built using Argon2id, XChaCha20/Poly1305,
 
 # LICENSE
 
-The MIT License (MIT)
+Apache License
