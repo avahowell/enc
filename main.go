@@ -23,7 +23,8 @@ func main() {
 	fileOutput := flag.String("o", "", "output")
 	flag.Parse()
 
-	if *fileOutput == "" {
+	if *fileOutput == "" || len(flag.Args()) != 1 {
+		fmt.Println("Usage: enc -o [output] [input]")
 		flag.Usage()
 		os.Exit(-1)
 	}
