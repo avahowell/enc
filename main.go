@@ -34,14 +34,16 @@ func main() {
 		fmt.Println("could not read passphrase")
 		os.Exit(-1)
 	}
-	passphrase2, err := askPassphrase("Again, please: ")
-	if err != nil {
-		fmt.Println("could not read passphrase")
-		os.Exit(-1)
-	}
-	if !bytes.Equal(passphrase, passphrase2) {
-		fmt.Println("passphrases did not match")
-		os.Exit(-1)
+	if !*decryptMode {
+		passphrase2, err := askPassphrase("Again, please: ")
+		if err != nil {
+			fmt.Println("could not read passphrase")
+			os.Exit(-1)
+		}
+		if !bytes.Equal(passphrase, passphrase2) {
+			fmt.Println("passphrases did not match")
+			os.Exit(-1)
+		}
 	}
 	fname := flag.Args()[0]
 	f, err := os.Open(fname)
